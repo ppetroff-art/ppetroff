@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Plamen Petroff — Concept Artist & Art Director</title>
-  <meta name="description" content="Portfolio of Plamen Petroff — Concept Artist and Art Director. Visual worldbuilding for film, games, and animation." />
-
-  <!-- Fonts: Bebas Neue (display) + Inter (body) -->
+  <meta name="description" content="Portfolio of Plamen Petroff — Concept Artist and Art Director." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -25,20 +23,17 @@
       --bg:          #1c1c1e;
       --surface:     #242426;
       --surface-2:   #2c2c2e;
-      --border:      rgba(255, 255, 255, 0.07);
-      --border-s:    rgba(255, 255, 255, 0.13);
-
+      --surface-3:   #323234;
+      --border:      rgba(255,255,255,0.07);
+      --border-s:    rgba(255,255,255,0.13);
       --text:        #f0ede8;
       --muted:       #8a8a8c;
       --dim:         #5a5a5e;
-
       --accent:      #c8922a;
       --accent-h:    #e0a83a;
-      --accent-dim:  rgba(200, 146, 42, 0.15);
-
+      --accent-dim:  rgba(200,146,42,0.15);
       --font-disp:   'Bebas Neue', 'Arial Black', sans-serif;
       --font-body:   'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-
       --max-w:       1120px;
       --gutter:      clamp(1.25rem, 4vw, 3rem);
       --radius:      6px;
@@ -52,7 +47,6 @@
     body {
       font-family: var(--font-body);
       background-color: var(--bg);
-      /* Subtle warm radial gradients for depth */
       background-image:
         radial-gradient(ellipse at 15% 0%, rgba(200,146,42,0.06) 0%, transparent 55%),
         radial-gradient(ellipse at 85% 100%, rgba(200,146,42,0.04) 0%, transparent 50%);
@@ -65,86 +59,53 @@
     a { color: inherit; text-decoration: none; }
 
     /* ════════════════════════════════════════════════
-       LAYOUT HELPERS
+       LAYOUT
     ════════════════════════════════════════════════ */
-    .container {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
-    }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
 
     /* ════════════════════════════════════════════════
-       FADE-IN SCROLL ANIMATION
+       FADE-IN ON SCROLL
     ════════════════════════════════════════════════ */
     .fade-in {
       opacity: 0;
-      transform: translateY(32px);
+      transform: translateY(28px);
       transition: opacity 0.75s cubic-bezier(0.4,0,0.2,1),
                   transform 0.75s cubic-bezier(0.4,0,0.2,1);
     }
-    .fade-in.visible {
-      opacity: 1;
-      transform: none;
-    }
+    .fade-in.visible { opacity: 1; transform: none; }
 
     /* ════════════════════════════════════════════════
        NAV
     ════════════════════════════════════════════════ */
     nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       transition: background 0.4s ease, border-color 0.4s ease;
       border-bottom: 1px solid transparent;
     }
-
     nav.scrolled {
-      background: rgba(28, 28, 30, 0.92);
+      background: rgba(28,28,30,0.92);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom-color: var(--border);
     }
-
     nav .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
+      display: flex; align-items: center;
+      justify-content: space-between; height: 64px;
     }
-
     .nav-logo {
-      font-family: var(--font-disp);
-      font-size: 1.25rem;
-      letter-spacing: 0.12em;
-      color: var(--text);
-      transition: color 0.2s;
+      font-family: var(--font-disp); font-size: 1.25rem;
+      letter-spacing: 0.12em; color: var(--text); transition: color 0.2s;
     }
     .nav-logo:hover { color: var(--accent); }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      transition: color 0.2s;
-      position: relative;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--muted);
+      transition: color 0.2s; position: relative;
     }
     .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--accent);
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--accent);
       transition: width 0.25s ease;
     }
     .nav-links a:hover { color: var(--text); }
@@ -154,448 +115,398 @@
        HERO
     ════════════════════════════════════════════════ */
     #hero {
-      min-height: 100svh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding-bottom: 5rem;
-      padding-top: 100px;
+      min-height: 100svh; display: flex; flex-direction: column;
+      justify-content: flex-end; padding-bottom: 5rem; padding-top: 100px;
     }
-
     .hero-eyebrow {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
     }
     .hero-eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 2rem;
-      height: 1px;
-      background: var(--accent);
+      content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--accent);
     }
-
     .hero-name {
       font-family: var(--font-disp);
       font-size: clamp(4.5rem, 15vw, 13rem);
-      line-height: 0.9;
-      letter-spacing: 0.02em;
-      color: var(--text);
-      margin-bottom: 0.15em;
+      line-height: 0.9; letter-spacing: 0.02em; color: var(--text);
     }
-
-    .hero-name .last {
-      /* Slightly different treatment for last name */
+    .hero-name.last {
       display: block;
-      /* Outline text effect */
-      -webkit-text-stroke: 1px rgba(240, 237, 232, 0.4);
+      -webkit-text-stroke: 1px rgba(240,237,232,0.4);
       color: transparent;
     }
-
     .hero-footer {
-      margin-top: 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid var(--border);
-      padding-top: 1.5rem;
+      margin-top: 3rem; display: flex; align-items: center;
+      justify-content: space-between; border-top: 1px solid var(--border); padding-top: 1.5rem;
     }
-
-    .hero-tagline {
-      font-size: 0.85rem;
-      color: var(--muted);
-      max-width: 320px;
-      line-height: 1.55;
-    }
-
+    .hero-tagline { font-size: 0.85rem; color: var(--muted); max-width: 320px; line-height: 1.55; }
     .hero-scroll {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--dim);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--dim);
     }
-
     .scroll-line {
-      width: 1px;
-      height: 40px;
+      width: 1px; height: 40px;
       background: linear-gradient(to bottom, var(--accent), transparent);
       animation: scrollPulse 2s ease-in-out infinite;
     }
-
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 1; }
-    }
+    @keyframes scrollPulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
 
     /* ════════════════════════════════════════════════
        SECTION LABEL
     ════════════════════════════════════════════════ */
-    .section-label {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 4rem;
-    }
-
-    .section-num {
-      font-family: var(--font-disp);
-      font-size: 0.85rem;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-    }
-
-    .section-title {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .section-line {
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
+    .section-label { display: flex; align-items: center; gap: 1rem; margin-bottom: 4rem; }
+    .section-num { font-family: var(--font-disp); font-size: 0.85rem; letter-spacing: 0.12em; color: var(--accent); }
+    .section-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
 
     /* ════════════════════════════════════════════════
        ABOUT
     ════════════════════════════════════════════════ */
-    #about {
-      padding: 7rem 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 2.5fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .about-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
+    #about { padding: 7rem 0; border-top: 1px solid var(--border); }
+    .about-grid { display: grid; grid-template-columns: 1fr 2.5fr; gap: 4rem; align-items: start; }
+    .about-meta { display: flex; flex-direction: column; gap: 2rem; }
     .meta-item label {
-      display: block;
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--dim);
-      margin-bottom: 0.4rem;
+      display: block; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--dim); margin-bottom: 0.4rem;
     }
-
-    .meta-item p {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.25rem;
-    }
-
+    .meta-item p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+    .skills-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.25rem; }
     .skill-tag {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: var(--accent-dim);
-      border: 1px solid rgba(200,146,42,0.2);
-      padding: 0.3rem 0.65rem;
-      border-radius: 3px;
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent); background: var(--accent-dim);
+      border: 1px solid rgba(200,146,42,0.2); padding: 0.3rem 0.65rem; border-radius: 3px;
     }
-
     .about-text p {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: rgba(240,237,232,0.75);
-      margin-bottom: 1.25rem;
-      font-weight: 300;
+      font-size: 1.05rem; line-height: 1.8;
+      color: rgba(240,237,232,0.75); margin-bottom: 1.25rem; font-weight: 300;
     }
     .about-text p:last-child { margin-bottom: 0; }
-
     .about-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-top: 2rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border-bottom: 1px solid rgba(200,146,42,0.3);
-      padding-bottom: 0.25rem;
-      transition: gap 0.2s, border-color 0.2s;
+      display: inline-flex; align-items: center; gap: 0.6rem; margin-top: 2rem;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent); border-bottom: 1px solid rgba(200,146,42,0.3);
+      padding-bottom: 0.25rem; transition: gap 0.2s, border-color 0.2s;
     }
     .about-cta:hover { gap: 1rem; border-color: var(--accent); }
 
     /* ════════════════════════════════════════════════
-       PROJECTS
+       PROJECTS GRID
     ════════════════════════════════════════════════ */
-    #projects {
-      padding: 7rem 0;
-      border-top: 1px solid var(--border);
-    }
+    #projects { padding: 7rem 0; border-top: 1px solid var(--border); }
 
-    /* Asymmetric 3-col grid
-       Row 1: Card [2/3 wide] | Card [1/3]
-       Row 2: Card [1/3]      | Card [2/3 wide]
-    */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto auto;
       gap: 1.25rem;
     }
 
-    .project-card:nth-child(1) { grid-column: span 2; }
-    .project-card:nth-child(2) { grid-column: span 1; }
-    .project-card:nth-child(3) { grid-column: span 1; }
-    .project-card:nth-child(4) { grid-column: span 2; }
+    /* Row 1: Card [2/3] | Card [1/3] */
+    .project-card[data-project="0"] { grid-column: span 2; }
+    .project-card[data-project="1"] { grid-column: span 1; }
+    /* Row 2: Card [1/3] | Card [2/3] */
+    .project-card[data-project="2"] { grid-column: span 1; }
+    .project-card[data-project="3"] { grid-column: span 2; }
 
+    /* ── Project Card ──────────────────────────────── */
     .project-card {
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
       border-radius: var(--radius);
       border: 1px solid var(--border);
       background: var(--surface);
       cursor: pointer;
-      /* Stagger handled by JS */
+      transition: border-color 0.3s;
+    }
+    .project-card:hover { border-color: var(--border-s); }
+    .project-card.active {
+      border-color: var(--accent);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
     }
 
-    /* Image container */
-    .project-img {
-      width: 100%;
-      overflow: hidden;
-    }
-    .project-card:nth-child(1) .project-img,
-    .project-card:nth-child(4) .project-img { aspect-ratio: 16 / 9; }
-    .project-card:nth-child(2) .project-img,
-    .project-card:nth-child(3) .project-img { aspect-ratio: 4 / 5; }
+    .project-img { width: 100%; overflow: hidden; }
+    .project-card[data-project="0"] .project-img,
+    .project-card[data-project="3"] .project-img { aspect-ratio: 16/9; }
+    .project-card[data-project="1"] .project-img,
+    .project-card[data-project="2"] .project-img { aspect-ratio: 4/5; }
 
-    /* Placeholder when no image */
     .project-img-placeholder {
-      width: 100%;
-      height: 100%;
-      background: var(--surface-2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 100%; height: 100%; background: var(--surface-2);
+      display: flex; align-items: center; justify-content: center;
     }
-    .project-img-placeholder svg {
-      width: 40px; height: 40px;
-      opacity: 0.12;
-    }
-
-    /* Always-on gradient overlay at bottom */
-    .project-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(10,10,12,0.85) 0%,
-        rgba(10,10,12,0.3) 40%,
-        transparent 70%
-      );
-      pointer-events: none;
-    }
-
-    /* Hover: top accent bar */
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
-      z-index: 2;
-    }
-    .project-card:hover::before { transform: scaleX(1); }
-
-    /* Image zoom on hover */
-    .project-img img {
-      transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
-    }
+    .project-img-placeholder svg { width: 40px; height: 40px; opacity: 0.1; }
+    .project-img img { transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
     .project-card:hover .project-img img { transform: scale(1.04); }
 
-    /* Project info overlay */
-    .project-info {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 1.5rem;
-      z-index: 1;
+    /* Gradient overlay */
+    .project-card::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,12,0.88) 0%, rgba(10,10,12,0.25) 45%, transparent 70%);
+      pointer-events: none;
     }
+    /* Top accent bar sweep */
+    .project-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--accent); transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); z-index: 2;
+    }
+    .project-card:hover::before,
+    .project-card.active::before { transform: scaleX(1); }
 
+    /* Hover "VIEW GALLERY" label */
+    .card-view-hint {
+      position: absolute; top: 1rem; right: 1rem; z-index: 3;
+      font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--text);
+      background: rgba(200,146,42,0.85); padding: 0.3rem 0.7rem;
+      border-radius: 3px; opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity 0.2s, transform 0.2s;
+      pointer-events: none;
+    }
+    .project-card:hover .card-view-hint { opacity: 1; transform: none; }
+
+    .project-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; z-index: 1; }
     .project-num {
-      font-family: var(--font-disp);
-      font-size: 0.8rem;
-      letter-spacing: 0.14em;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
-      opacity: 0.8;
+      font-family: var(--font-disp); font-size: 0.8rem;
+      letter-spacing: 0.14em; color: var(--accent); margin-bottom: 0.4rem; opacity: 0.8;
     }
-
     .project-info h3 {
       font-family: var(--font-disp);
       font-size: clamp(1.2rem, 2.5vw, 1.7rem);
-      letter-spacing: 0.05em;
-      color: var(--text);
-      line-height: 1;
-      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em; color: var(--text); line-height: 1; margin-bottom: 0.4rem;
     }
-
-    .project-info p {
-      font-size: 0.8rem;
-      color: rgba(240,237,232,0.55);
-      line-height: 1.4;
-      max-width: 36ch;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.75rem;
-    }
-
+    .project-info p { font-size: 0.8rem; color: rgba(240,237,232,0.5); line-height: 1.4; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
     .p-tag {
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      background: rgba(255,255,255,0.07);
-      padding: 0.25rem 0.55rem;
-      border-radius: 3px;
+      font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); background: rgba(255,255,255,0.07); padding: 0.25rem 0.55rem; border-radius: 3px;
+    }
+
+    /* ════════════════════════════════════════════════
+       GALLERY PANEL (spans full width below each row)
+    ════════════════════════════════════════════════ */
+    .gallery-panel {
+      grid-column: 1 / -1;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition:
+        max-height 0.6s cubic-bezier(0.4,0,0.2,1),
+        opacity 0.4s ease,
+        margin 0.4s ease;
+      margin-top: 0;
+    }
+    .gallery-panel.open {
+      max-height: 1400px;
+      opacity: 1;
+      margin-top: 0; /* gap handles spacing */
+    }
+
+    .panel-inner {
+      background: var(--surface);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 2rem 2rem 2.5rem;
+    }
+
+    .panel-header {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 2rem; margin-bottom: 2rem;
+      padding-bottom: 1.5rem; border-bottom: 1px solid var(--border);
+    }
+
+    .panel-num {
+      font-family: var(--font-disp); font-size: 0.75rem;
+      letter-spacing: 0.14em; color: var(--accent); margin-bottom: 0.5rem;
+    }
+    .panel-title {
+      font-family: var(--font-disp); font-size: clamp(1.8rem, 4vw, 3rem);
+      letter-spacing: 0.04em; color: var(--text); line-height: 1; margin-bottom: 0.75rem;
+    }
+    .panel-desc {
+      font-size: 0.9rem; color: var(--muted); max-width: 60ch; line-height: 1.6; margin-bottom: 1rem;
+    }
+    .panel-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .panel-tag {
+      font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); background: var(--accent-dim);
+      border: 1px solid rgba(200,146,42,0.2); padding: 0.3rem 0.65rem; border-radius: 3px;
+    }
+
+    .panel-close {
+      flex-shrink: 0; background: var(--surface-2); border: 1px solid var(--border);
+      color: var(--muted); width: 40px; height: 40px; border-radius: 50%;
+      font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, color 0.2s, border-color 0.2s; line-height: 1;
+    }
+    .panel-close:hover { background: var(--surface-3); color: var(--text); border-color: var(--border-s); }
+
+    /* ── Gallery image grid ────────────────────────── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.6rem;
+    }
+
+    .gal-item {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      border-radius: 4px;
+      cursor: pointer;
+      background: var(--surface-2);
+      position: relative;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .gal-item:hover { border-color: var(--accent); }
+
+    .gal-item img {
+      transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
+    }
+    .gal-item:hover img { transform: scale(1.06); }
+
+    /* Zoom icon on hover */
+    .gal-item::after {
+      content: '⊕';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%) scale(0.5);
+      font-size: 1.5rem; color: white; opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 1; pointer-events: none; text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+    }
+    .gal-item:hover::after { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+
+    /* Placeholder tile when no image */
+    .gal-placeholder {
+      width: 100%; height: 100%; background: var(--surface-2);
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: 0.5rem; user-select: none;
+    }
+    .gal-placeholder-num {
+      font-family: var(--font-disp); font-size: 1.6rem;
+      color: var(--dim); letter-spacing: 0.1em;
+    }
+    .gal-placeholder-label {
+      font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--dim);
+    }
+
+    /* ════════════════════════════════════════════════
+       LIGHTBOX
+    ════════════════════════════════════════════════ */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(10,10,12,0.96);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .lightbox.open { opacity: 1; pointer-events: all; }
+
+    .lb-img-wrap {
+      max-width: 90vw; max-height: 88vh;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .lb-img-wrap img {
+      max-width: 90vw; max-height: 88vh;
+      width: auto; height: auto;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+    }
+    /* Placeholder in lightbox */
+    .lb-placeholder {
+      width: min(80vw, 900px); height: min(70vh, 600px);
+      background: var(--surface); border-radius: 4px;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: 1rem;
+    }
+    .lb-placeholder .num {
+      font-family: var(--font-disp); font-size: 5rem;
+      color: var(--dim); letter-spacing: 0.1em;
+    }
+    .lb-placeholder .hint {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--dim);
+    }
+
+    .lb-close {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--muted); width: 44px; height: 44px; border-radius: 50%;
+      font-size: 1.1rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, color 0.2s;
+    }
+    .lb-close:hover { background: var(--surface-2); color: var(--text); }
+
+    .lb-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--muted); width: 48px; height: 48px; border-radius: 50%;
+      font-size: 1.3rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .lb-nav:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .lb-prev { left: 1.5rem; }
+    .lb-next { right: 1.5rem; }
+
+    .lb-counter {
+      position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--dim);
     }
 
     /* ════════════════════════════════════════════════
        CONTACT
     ════════════════════════════════════════════════ */
-    #contact {
-      padding: 7rem 0;
-      border-top: 1px solid var(--border);
-    }
-
+    #contact { padding: 7rem 0; border-top: 1px solid var(--border); }
     .contact-heading {
-      font-family: var(--font-disp);
-      font-size: clamp(3rem, 8vw, 7rem);
-      letter-spacing: 0.03em;
-      line-height: 0.95;
-      color: var(--text);
-      margin-bottom: 4rem;
+      font-family: var(--font-disp); font-size: clamp(3rem, 8vw, 7rem);
+      letter-spacing: 0.03em; line-height: 0.95; color: var(--text); margin-bottom: 4rem;
     }
-
     .contact-heading em {
-      font-style: normal;
-      -webkit-text-stroke: 1px rgba(240,237,232,0.35);
-      color: transparent;
+      font-style: normal; -webkit-text-stroke: 1px rgba(240,237,232,0.35); color: transparent;
     }
-
     .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+      gap: 1px; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
     }
-
     .contact-item {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 1.75rem;
-      background: var(--surface);
+      display: flex; flex-direction: column; justify-content: space-between;
+      padding: 1.75rem; background: var(--surface);
       border-right: 1px solid var(--border);
-      transition: background 0.2s;
-      min-height: 140px;
+      transition: background 0.2s; min-height: 140px;
     }
     .contact-item:last-child { border-right: none; }
     .contact-item:hover { background: var(--surface-2); }
-
     .ci-label {
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--dim);
-      margin-bottom: 0.75rem;
+      font-size: 0.6rem; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--dim); margin-bottom: 0.75rem;
     }
-
-    .ci-value {
-      font-size: 0.875rem;
-      color: var(--text);
-      font-weight: 500;
-      line-height: 1.4;
-    }
-
+    .ci-value { font-size: 0.875rem; color: var(--text); font-weight: 500; line-height: 1.4; }
     .ci-arrow {
-      font-size: 1.1rem;
-      color: var(--accent);
-      opacity: 0;
-      transform: translateX(-4px);
-      transition: opacity 0.2s, transform 0.2s;
-      margin-top: 1rem;
+      font-size: 1.1rem; color: var(--accent); opacity: 0;
+      transform: translateX(-4px); transition: opacity 0.2s, transform 0.2s; margin-top: 1rem;
     }
     .contact-item:hover .ci-arrow { opacity: 1; transform: none; }
 
     /* ════════════════════════════════════════════════
        FOOTER
     ════════════════════════════════════════════════ */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 0;
-    }
-
-    footer .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
+    footer { border-top: 1px solid var(--border); padding: 2rem 0; }
+    footer .container { display: flex; align-items: center; justify-content: space-between; }
     .footer-copy {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--dim);
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--dim);
     }
-
     .footer-top {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: color 0.2s;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+      display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s;
     }
     .footer-top:hover { color: var(--accent); }
 
@@ -603,47 +514,37 @@
        RESPONSIVE
     ════════════════════════════════════════════════ */
     @media (max-width: 768px) {
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-      .project-card:nth-child(1),
-      .project-card:nth-child(2),
-      .project-card:nth-child(3),
-      .project-card:nth-child(4) {
-        grid-column: span 1;
-      }
-      .project-card:nth-child(1) .project-img,
-      .project-card:nth-child(4) .project-img,
-      .project-card:nth-child(2) .project-img,
-      .project-card:nth-child(3) .project-img {
-        aspect-ratio: 4/3;
-      }
-
-      .hero-name { font-size: clamp(4rem, 20vw, 7rem); }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .hero-footer { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-
-      .contact-grid { grid-template-columns: 1fr 1fr; }
-
       footer .container { flex-direction: column; gap: 0.75rem; text-align: center; }
-
       .nav-links { gap: 1.5rem; }
+
+      /* Stack all cards */
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card[data-project="0"],
+      .project-card[data-project="1"],
+      .project-card[data-project="2"],
+      .project-card[data-project="3"] { grid-column: span 1; }
+      .project-card .project-img { aspect-ratio: 4/3 !important; }
+
+      /* On mobile each card has its own inline panel */
+      .gallery-panel { grid-column: span 1 !important; }
+
+      .panel-inner { padding: 1.5rem 1.25rem 2rem; }
+      .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+      .lb-prev { left: 0.5rem; } .lb-next { right: 0.5rem; }
     }
 
     @media (max-width: 480px) {
       .nav-links li:not(:last-child) { display: none; }
       .contact-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(120px,1fr)); }
     }
-
   </style>
 </head>
 <body>
 
-  <!-- ═══════════════════════════ NAV ═══════════════════════════ -->
+  <!-- ═══════════════ NAV ═══════════════ -->
   <nav id="main-nav">
     <div class="container">
       <a class="nav-logo" href="#hero">PP</a>
@@ -655,7 +556,7 @@
     </div>
   </nav>
 
-  <!-- ═══════════════════════════ HERO ══════════════════════════ -->
+  <!-- ═══════════════ HERO ═══════════════ -->
   <section id="hero">
     <div class="container">
       <p class="hero-eyebrow">Concept Artist &amp; Art Director</p>
@@ -665,27 +566,25 @@
       </h1>
       <div class="hero-footer">
         <p class="hero-tagline">
-          Visual worldbuilding for video games.<br>
-          From a though to an immersive world.
+          Visual worldbuilding for video games and narrative media. 
+		  I help teams and creatives deliver coherent visuals and create believeable worlds.
         </p>
-        <div class="hero-scroll">
+        <!-- <div class="hero-scroll">
           <div class="scroll-line"></div>
           Scroll
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════ ABOUT ═════════════════════════ -->
+  <!-- ═══════════════ ABOUT ═══════════════ -->
   <section id="about">
     <div class="container">
-
       <div class="section-label fade-in">
         <span class="section-num">01</span>
         <span class="section-title">About</span>
         <span class="section-line"></span>
       </div>
-
       <div class="about-grid">
         <div class="about-meta fade-in">
           <div class="meta-item">
@@ -694,7 +593,7 @@
           </div>
           <div class="meta-item">
             <label>Based In</label>
-            <p>Your City, Country</p>
+            <p>Sofia, Bulgaria</p>
           </div>
           <div class="meta-item">
             <label>Available For</label>
@@ -704,13 +603,11 @@
             <label>Tools</label>
             <div class="skills-list">
               <span class="skill-tag">Photoshop</span>
-              <span class="skill-tag">ZBrush</span>
               <span class="skill-tag">Blender</span>
-              <span class="skill-tag">Procreate</span>
+              <span class="skill-tag">Unreal Engine</span>
             </div>
           </div>
         </div>
-
         <div class="about-text fade-in">
           <p>
             Hi, I'm Plamen — a concept artist and art director with a passion for
@@ -718,62 +615,71 @@
             rough sketches through to polished visual concepts that guide entire productions.
           </p>
           <p>
-            A Senior Concept Artist and Art Director with deep expertise in character design,
-			customization systems, and environmental art for games. I specialize in translating
-			creative vision into cohesive visual languages, from iconic character concepts
-			and detailed armor/weapon sets to landmark architecture and UI design. While
-			collaborating closely with creative leadership to define and maintain design
-			integrity across projects and make a world feel real and alive.
+            I've worked across film, games, and animation — collaborating with
+            directors and creative teams to develop the visual language of their
+            stories. Whether designing a single hero character or establishing the
+            entire look of an environment, I focus on the details that make a world
+            feel real and lived-in.
           </p>
-          <p style="color: var(--dim); font-size: 0.8rem; font-style: italic;">
-           <!-- ✏️ Replace this with your real bio. Describe your background, approach, and what drives your work./ -->
-          </p>
+         <!--  <p style="color:var(--dim);font-size:0.8rem;font-style:italic;">
+            ✏️ Replace this with your real bio.
+          </p> -->
           <a href="#contact" class="about-cta">Let's work together →</a>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ═══════════════════════════ PROJECTS ══════════════════════ -->
+  <!-- ═══════════════ PROJECTS ═══════════════ -->
   <section id="projects">
     <div class="container">
-
       <div class="section-label fade-in">
         <span class="section-num">02</span>
         <span class="section-title">Selected Work</span>
         <span class="section-line"></span>
       </div>
 
-      <div class="projects-grid">
+      <div class="projects-grid" id="projects-grid">
 
-        <!-- Card 1: Wide (2/3) -->
-        <div class="project-card fade-in">
+        <!-- ── ROW 1 ──────────────────────────── -->
+
+        <!-- Card 0: Wide -->
+        <div class="project-card fade-in" data-project="0" data-row="row1" tabindex="0" role="button" aria-label="Open gallery for Project Title One">
           <div class="project-img">
-            <!-- TO ADD YOUR IMAGE: replace the div below with:
-                 <img src="images/project_tlo.jpg" alt="Project TLO"> -->
-				 <img src="images/project_tlo.jpg" alt="Project TLO">
-            
+            <!--
+              TO ADD YOUR COVER IMAGE replace the div below with:
+              <img src="images/project1/cover.jpg" alt="Project One Cover">
+            -->
+			<img src="images/project_tlo.jpg" alt="Project TLO">
+            <!-- <div class="project-img-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <path d="M21 15l-5-5L5 21"/>
+              </svg>
+            </div> -->
           </div>
+          <span class="card-view-hint">View Gallery</span>
           <div class="project-info">
             <div class="project-num">01</div>
             <h3>The Last Oricru</h3>
-            <p>The Last Oricru is an action RPG, set on a planet with different factions that are warring with eachoter. .</p>
+            <p>Short description — the project, your role, what makes it stand out.</p>
             <div class="project-tags">
-              <span class="p-tag">Characters</span>
-			  <span class="p-tag">Environment</span>
-              <span class="p-tag">Creatures</span>
-              <span class="p-tag">Props</span>
-			  <span class="p-tag">Armor</span>
+              <span class="p-tag">Environment</span>
+              <span class="p-tag">Character</span>
+              <span class="p-tag">Weapons</span>
+			  <span class="p-tag">Props</span>
+			  <span class="p-tag">Design Bible</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 2: Narrow (1/3) -->
-        <div class="project-card fade-in">
+        <!-- Card 1: Narrow -->
+        <div class="project-card fade-in" data-project="1" data-row="row1" tabindex="0" role="button" aria-label="Open gallery for Project Title Two">
           <div class="project-img">
-		  <img src="images/project_umbrige.jpg" alt=" Project Umbrige">
+            <img src="images/project_umbrige.jpg" alt="Project Umbrige">
           </div>
+          <span class="card-view-hint">View Gallery</span>
           <div class="project-info">
             <div class="project-num">02</div>
             <h3>Umbrige</h3>
@@ -781,34 +687,51 @@
             <div class="project-tags">
               <span class="p-tag">Character</span>
               <span class="p-tag">Game</span>
+			  <span class="p-tag">Environment</span>
+			  <span class="p-tag">Props</span>
+			  <span class="p-tag">Environmental Storytelling</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 3: Narrow (1/3) -->
-        <div class="project-card fade-in">
-          <div class="project-img">
-            <div class="project-img-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <path d="M21 15l-5-5L5 21"/>
-              </svg>
+        <!-- ── ROW 1 GALLERY PANEL ──────────── -->
+        <div class="gallery-panel" id="panel-row1" data-panel="row1">
+          <div class="panel-inner">
+            <div class="panel-header">
+              <div>
+                <div class="panel-num" id="panel-row1-num"></div>
+                <h3 class="panel-title" id="panel-row1-title"></h3>
+                <p class="panel-desc" id="panel-row1-desc"></p>
+                <div class="panel-tags" id="panel-row1-tags"></div>
+              </div>
+              <button class="panel-close" data-close="row1" aria-label="Close gallery">✕</button>
             </div>
+            <div class="gallery-grid" id="gallery-row1"></div>
           </div>
+        </div>
+
+        <!-- ── ROW 2 ──────────────────────────── -->
+
+        <!-- Card 2: Narrow -->
+        <div class="project-card fade-in" data-project="2" data-row="row2" tabindex="0" role="button" aria-label="Open gallery for Project Title Three">
+          <div class="project-img">
+            <img src="images/project_lifeslide.jpg" alt="Project LifeSlide">
+          </div>
+          <span class="card-view-hint">View Gallery</span>
           <div class="project-info">
             <div class="project-num">03</div>
-            <h3>PROJECT TITLE THREE</h3>
-            <p>Short description of this project.</p>
+            <h3>LifeSlide</h3>
+            <p>An atmospheric paper plane flight arcade game, with each level acting as a methaphore for a period of our lifes.</p>
             <div class="project-tags">
-              <span class="p-tag">Creature</span>
-              <span class="p-tag">Animation</span>
+              <span class="p-tag">Concept Art</span>
+              <span class="p-tag">Level Design</span>
+			  <span class="p-tag">Environment Design</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 4: Wide (2/3) -->
-        <div class="project-card fade-in">
+        <!-- Card 3: Wide -->
+        <div class="project-card fade-in" data-project="3" data-row="row2" tabindex="0" role="button" aria-label="Open gallery for Project Title Four">
           <div class="project-img">
             <div class="project-img-placeholder">
               <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
@@ -818,10 +741,11 @@
               </svg>
             </div>
           </div>
+          <span class="card-view-hint">View Gallery</span>
           <div class="project-info">
             <div class="project-num">04</div>
             <h3>PROJECT TITLE FOUR</h3>
-            <p>Short description — the project, your role, what makes it compelling.</p>
+            <p>Short description — the project, your role, what makes it stand out.</p>
             <div class="project-tags">
               <span class="p-tag">Visual Dev</span>
               <span class="p-tag">Film</span>
@@ -830,51 +754,60 @@
           </div>
         </div>
 
-      </div>
+        <!-- ── ROW 2 GALLERY PANEL ──────────── -->
+        <div class="gallery-panel" id="panel-row2" data-panel="row2">
+          <div class="panel-inner">
+            <div class="panel-header">
+              <div>
+                <div class="panel-num" id="panel-row2-num"></div>
+                <h3 class="panel-title" id="panel-row2-title"></h3>
+                <p class="panel-desc" id="panel-row2-desc"></p>
+                <div class="panel-tags" id="panel-row2-tags"></div>
+              </div>
+              <button class="panel-close" data-close="row2" aria-label="Close gallery">✕</button>
+            </div>
+            <div class="gallery-grid" id="gallery-row2"></div>
+          </div>
+        </div>
+
+      </div><!-- /projects-grid -->
     </div>
   </section>
 
-  <!-- ═══════════════════════════ CONTACT ═══════════════════════ -->
+  <!-- ═══════════════ CONTACT ═══════════════ -->
   <section id="contact">
     <div class="container">
-
       <div class="section-label fade-in">
         <span class="section-num">03</span>
         <span class="section-title">Contact</span>
         <span class="section-line"></span>
       </div>
-
       <h2 class="contact-heading fade-in">
         LET'S BUILD<br>
         WORLDS <em>TOGETHER.</em>
       </h2>
-
       <div class="contact-grid fade-in">
-
-        <a href="mailto:ppetroff@ppetroff.net" class="contact-item">
+        <a href="mailto:your@email.com" class="contact-item">
           <div>
             <div class="ci-label">Email</div>
-            <div class="ci-value">ppetroff@ppetroff.net</div>
+            <div class="ci-value">your@email.com</div>
           </div>
           <div class="ci-arrow">→</div>
         </a>
-
-        <a href="https://artstation.com/petroff" target="_blank" rel="noopener" class="contact-item">
+        <a href="https://artstation.com/yourhandle" target="_blank" rel="noopener" class="contact-item">
           <div>
             <div class="ci-label">ArtStation</div>
-            <div class="ci-value">artstation.com/<wbr>petroff</div>
+            <div class="ci-value">artstation.com/<wbr>yourhandle</div>
           </div>
           <div class="ci-arrow">→</div>
         </a>
-
-        <a href="https://linkedin.com/in/ppetroff/" target="_blank" rel="noopener" class="contact-item">
+        <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener" class="contact-item">
           <div>
             <div class="ci-label">LinkedIn</div>
-            <div class="ci-value">linkedin.com/in/<wbr>ppetroff</div>
+            <div class="ci-value">linkedin.com/in/<wbr>yourprofile</div>
           </div>
           <div class="ci-arrow">→</div>
         </a>
-
         <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener" class="contact-item">
           <div>
             <div class="ci-label">Instagram</div>
@@ -882,12 +815,11 @@
           </div>
           <div class="ci-arrow">→</div>
         </a>
-
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════ FOOTER ════════════════════════ -->
+  <!-- ═══════════════ FOOTER ═══════════════ -->
   <footer>
     <div class="container">
       <p class="footer-copy">© 2026 Plamen Petroff</p>
@@ -895,43 +827,311 @@
     </div>
   </footer>
 
-  <!-- ═══════════════════════════ JS ════════════════════════════ -->
+  <!-- ═══════════════ LIGHTBOX ═══════════════ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lb-close" id="lb-close" aria-label="Close">✕</button>
+    <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous image">‹</button>
+    <div class="lb-img-wrap" id="lb-img-wrap"></div>
+    <button class="lb-nav lb-next" id="lb-next" aria-label="Next image">›</button>
+    <div class="lb-counter" id="lb-counter"></div>
+  </div>
+
+  <!-- ═══════════════ SCRIPT ═══════════════ -->
   <script>
-    // ── Fade-in on scroll ───────────────────────────────────────
-    const fadeEls = document.querySelectorAll('.fade-in');
+  // ══════════════════════════════════════════════════════
+  //  PROJECT DATA
+  //  ─────────────────────────────────────────────────────
+  //  HOW TO ADD YOUR IMAGES:
+  //  1. Create a folder: images/project1/ (or project2/, etc.)
+  //  2. Put your images in it: 01.jpg, 02.jpg, etc.
+  //  3. List the paths in the "images" array below.
+  //  4. Replace title, description, and tags with your real info.
+  //
+  //  If images[] is empty, numbered placeholders are shown.
+  // ══════════════════════════════════════════════════════
+  const PROJECTS = [
+    {
+      id: 0,
+      row: 'row1',
+      num: '01',
+      title: 'The Last Oricru',
+      description: 'TLO is an action RPG set on a planet with warring factions. Making choices and choosing your battles dictates who will consider you a friend or a foe. As a senior concept artist on the project the creation of a design Bible was one of my tasks. I had to create the armory pieces that can be combined throughout the game and have them visually belong to their respective factions. Creation of weapons, shields, characters and creatures, abd architectural and lore visuals.',
+      tags: ['Environment', 'Character', 'Weapons', 'Props', 'Design Bible'],
+      images: [
+      'images/project1/00.jpg',
+	  'images/project1/01.jpg',
+      'images/project1/02.jpg',
+      'images/project1/03.jpg',
+      'images/project1/04.jpg',
+      'images/project1/05.jpg',
+      'images/project1/06.jpg',
+	  'images/project1/07.jpg',
+      'images/project1/08.jpg',
+      'images/project1/09.jpg',
+      'images/project1/10.jpg',
+      ]
+    },
+    {
+      id: 1,
+      row: 'row1',
+      num: '02',
+      title: 'Umbrige',
+      description: 'A personal project exploring vertical worldbuilding within a mining qarry/canyon with a side dish of miysticism.',
+      tags: ['Character', 'Game', 'Environment', 'Props', 'Unreal Engine', 'World Building'],
+      images: [
+       'images/project2/01.jpg',
+       'images/project2/02.jpg',
+       'images/project2/03.jpg',
+	   'images/project2/04.jpg',
+       'images/project2/05.jpg',
+       'images/project2/06.jpg',
+	   'images/project2/07.jpg',
+	   'images/project2/08.jpg',
+		 
+      ]
+    },
+    {
+      id: 2,
+      row: 'row2',
+      num: '03',
+      title: 'LifeSlide',
+      description: 'An atmospheric paper plane flight arcade game, with each level acting as a methaphore for a period of our lifes.',
+      tags: ['Creature', 'Animation'],
+      images: [
+         'images/project3/01.jpg',
+         'images/project3/02.jpg',
+         'images/project3/03.jpg',
+         'images/project3/04.jpg',
+		 'images/project3/05.jpg',
+         //'images/project3/06.jpg',
+         'images/project3/07.jpg',
+         'images/project3/08.jpg',
+      ]
+    },
+    {
+      id: 3,
+      row: 'row2',
+      num: '04',
+      title: 'PROJECT TITLE FOUR',
+      description: 'Describe this project in a few sentences — the brief, your role, the challenges, and the result.',
+      tags: ['Visual Dev', 'Film', '2024'],
+      images: [
+        // 'images/project4/01.jpg',
+        // 'images/project4/02.jpg',
+        // 'images/project4/03.jpg',
+        // 'images/project4/04.jpg',
+        // 'images/project4/05.jpg',
+      ]
+    }
+  ];
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target); // animate once
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  // ── Gallery panel state ──────────────────────────────
+  let activeRow = null;       // which row's panel is open
+  let activeProject = null;   // which project is highlighted
 
-    // Stagger project cards
-    document.querySelectorAll('.projects-grid .project-card').forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.1}s`;
+  // ── Lightbox state ───────────────────────────────────
+  let lbImages = [];
+  let lbIndex  = 0;
+
+  // ══════════════════════════════════════════════════════
+  //  GALLERY PANEL
+  // ══════════════════════════════════════════════════════
+  function openPanel(project) {
+    const rowId = project.row;
+    const panel = document.getElementById('panel-' + rowId);
+
+    // If same project clicked again → close
+    if (activeProject === project.id && panel.classList.contains('open')) {
+      closePanel(rowId);
+      return;
+    }
+
+    // Close any currently open panel
+    if (activeRow && activeRow !== rowId) {
+      closePanel(activeRow, false); // silent close, no scroll
+    }
+
+    // Mark the clicked card as active, unmark others in same row
+    document.querySelectorAll('.project-card').forEach(c => c.classList.remove('active'));
+    document.querySelector(`.project-card[data-project="${project.id}"]`).classList.add('active');
+
+    // Populate panel
+    document.getElementById('panel-' + rowId + '-num').textContent  = project.num;
+    document.getElementById('panel-' + rowId + '-title').textContent = project.title;
+    document.getElementById('panel-' + rowId + '-desc').textContent  = project.description;
+
+    const tagsEl = document.getElementById('panel-' + rowId + '-tags');
+    tagsEl.innerHTML = project.tags.map(t => `<span class="panel-tag">${t}</span>`).join('');
+
+    // Build gallery grid
+    const gridEl = document.getElementById('gallery-' + rowId);
+    gridEl.innerHTML = '';
+
+    const imgCount = project.images.length > 0 ? project.images.length : 6;
+    lbImages = project.images.length > 0 ? project.images : [];
+
+    for (let i = 0; i < imgCount; i++) {
+      const item = document.createElement('div');
+      item.className = 'gal-item';
+      item.dataset.index = i;
+
+      if (project.images[i]) {
+        const img = document.createElement('img');
+        img.src = project.images[i];
+        img.alt = `${project.title} — image ${i + 1}`;
+        img.loading = 'lazy';
+        item.appendChild(img);
+      } else {
+        // Numbered placeholder
+        item.innerHTML = `
+          <div class="gal-placeholder">
+            <span class="gal-placeholder-num">${String(i + 1).padStart(2, '0')}</span>
+            <span class="gal-placeholder-label">Add image</span>
+          </div>`;
+      }
+
+      item.addEventListener('click', () => openLightbox(project, i));
+      gridEl.appendChild(item);
+    }
+
+    // Open panel
+    panel.classList.add('open');
+    activeRow = rowId;
+    activeProject = project.id;
+
+    // Smooth scroll so panel is visible
+    setTimeout(() => {
+      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
+  }
+
+  function closePanel(rowId, doScroll = true) {
+    const panel = document.getElementById('panel-' + rowId);
+    if (!panel) return;
+    panel.classList.remove('open');
+    document.querySelectorAll('.project-card').forEach(c => c.classList.remove('active'));
+    if (activeRow === rowId) { activeRow = null; activeProject = null; }
+  }
+
+  // ── Project card click listeners ────────────────────
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const id = parseInt(card.dataset.project);
+      openPanel(PROJECTS[id]);
     });
+    // Keyboard support
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const id = parseInt(card.dataset.project);
+        openPanel(PROJECTS[id]);
+      }
+    });
+  });
 
-    fadeEls.forEach(el => observer.observe(el));
+  // ── Close button listeners ───────────────────────────
+  document.querySelectorAll('.panel-close').forEach(btn => {
+    btn.addEventListener('click', () => closePanel(btn.dataset.close));
+  });
 
-    // ── Nav opacity on scroll ───────────────────────────────────
-    const nav = document.getElementById('main-nav');
-    const heroEl = document.getElementById('hero');
+  // ══════════════════════════════════════════════════════
+  //  LIGHTBOX
+  // ══════════════════════════════════════════════════════
+  const lightbox   = document.getElementById('lightbox');
+  const lbImgWrap  = document.getElementById('lb-img-wrap');
+  const lbCounter  = document.getElementById('lb-counter');
 
-    const navObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          nav.classList.remove('scrolled');
-        } else {
-          nav.classList.add('scrolled');
-        }
-      });
-    }, { threshold: 0.05 });
+  function openLightbox(project, startIndex) {
+    lbImages = project.images;
+    lbIndex  = startIndex;
+    showLbImage();
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
 
-    navObserver.observe(heroEl);
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function showLbImage() {
+    lbImgWrap.innerHTML = '';
+    const total = lbImages.length > 0 ? lbImages.length : 1;
+
+    if (lbImages[lbIndex]) {
+      const img = document.createElement('img');
+      img.src = lbImages[lbIndex];
+      img.alt = '';
+      lbImgWrap.appendChild(img);
+    } else {
+      // Placeholder
+      const ph = document.createElement('div');
+      ph.className = 'lb-placeholder';
+      ph.innerHTML = `
+        <span class="num">${String(lbIndex + 1).padStart(2, '0')}</span>
+        <span class="hint">Place your image at images/projectN/${String(lbIndex + 1).padStart(2,'0')}.jpg</span>`;
+      lbImgWrap.appendChild(ph);
+    }
+
+    const shown = lbImages.length > 0 ? lbImages.length : 6;
+    lbCounter.textContent = `${lbIndex + 1} / ${shown}`;
+    document.getElementById('lb-prev').style.display = lbIndex === 0 ? 'none' : 'flex';
+    document.getElementById('lb-next').style.display = lbIndex >= shown - 1 ? 'none' : 'flex';
+  }
+
+  document.getElementById('lb-close').addEventListener('click', closeLightbox);
+  document.getElementById('lb-prev').addEventListener('click', () => {
+    if (lbIndex > 0) { lbIndex--; showLbImage(); }
+  });
+  document.getElementById('lb-next').addEventListener('click', () => {
+    const total = lbImages.length > 0 ? lbImages.length : 6;
+    if (lbIndex < total - 1) { lbIndex++; showLbImage(); }
+  });
+
+  // Close lightbox on backdrop click
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  // Keyboard: ESC closes, arrow keys navigate
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape')      closeLightbox();
+    if (e.key === 'ArrowLeft')   { if (lbIndex > 0) { lbIndex--; showLbImage(); } }
+    if (e.key === 'ArrowRight')  {
+      const total = lbImages.length > 0 ? lbImages.length : 6;
+      if (lbIndex < total - 1)  { lbIndex++; showLbImage(); }
+    }
+  });
+
+  // ══════════════════════════════════════════════════════
+  //  FADE-IN ON SCROLL
+  // ══════════════════════════════════════════════════════
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        scrollObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  // Stagger project cards
+  document.querySelectorAll('.project-card').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.1}s`;
+  });
+  fadeEls.forEach(el => scrollObserver.observe(el));
+
+  // ══════════════════════════════════════════════════════
+  //  NAV SCROLL OPACITY
+  // ══════════════════════════════════════════════════════
+  const mainNav = document.getElementById('main-nav');
+  const heroSec = document.getElementById('hero');
+  new IntersectionObserver((entries) => {
+    entries.forEach(e => mainNav.classList.toggle('scrolled', !e.isIntersecting));
+  }, { threshold: 0.05 }).observe(heroSec);
+
   </script>
-
 </body>
 </html>
